@@ -1,0 +1,30 @@
+COPY-AND-PASTE SNIPPETS FOR FUTURE UPDATES
+==========================================
+
+1) NEW PUBLICATION (publications.html)
+Find the year block (for example 2026). If it does not exist, copy a whole year block
+(from <ul class="dated"> to its closing </ul>) and change the year. Then add inside the inner list:
+
+<li style="margin-bottom:.9rem"><p class="pub">Author A, <strong>Saha, S. M.</strong>, &amp; Author C. Title of the paper. <em>Journal Name</em>, 12(3), 100&ndash;120. <a href="https://doi.org/PASTE-DOI">DOI</a></p></li>
+
+2) LINK TO A PAPER (any page)
+Add at the end of the entry:  <a href="PASTE-URL">PDF</a>
+
+3) ABSTRACT UNDER A WORKING PAPER (research.html)
+Paste just before the closing </div> of that paper's entry:
+
+<details><summary>Abstract</summary><p>Paste abstract text here.</p></details>
+
+4) NEWS ITEM (index.html, under News)
+Paste as the first item in the News list:
+
+<li><span class="when">2026</span><div class="what"><p>Your news sentence.</p></div></li>
+
+5) NEW AWARD OR PRESENTATION (cv.html)
+Copy an existing <li> line in the same section and change the year and text.
+
+6) TEACHING COURSE (teaching.html)
+Delete the <!-- and --> around the course template and edit the text.
+
+7) AFTER EVERY CHANGE
+Change "Last updated" in the footer of each page you edited (search for "Last updated").

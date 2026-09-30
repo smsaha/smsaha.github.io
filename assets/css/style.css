@@ -1,0 +1,104 @@
+/* ===== Design tokens: edit colors and fonts here ===== */
+:root {
+  --ink: #17262b;          /* main text */
+  --muted: #55666b;        /* secondary text */
+  --paper: #fdfdfb;        /* page background */
+  --tint: #edf3f1;         /* light panels */
+  --rule: #d5dfdc;         /* thin lines */
+  --accent: #0e5a4a;       /* links, highlights (deep water green) */
+  --accent-dark: #083d32;  /* link hover */
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--sans); line-height: 1.6;
+}
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 1.5rem; }
+
+a { color: var(--accent); text-underline-offset: 0.18em; }
+a:hover { color: var(--accent-dark); }
+:focus-visible { outline: 3px solid #e0a100; outline-offset: 3px; border-radius: 2px; }
+.skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: #fff; padding: .5rem 1rem; z-index: 10; }
+.skip:focus { left: 0; }
+
+/* ===== Header and navigation ===== */
+.site-header { border-bottom: 1px solid var(--rule); background: var(--paper); position: relative; }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; min-height: 4.2rem; gap: 1rem; }
+.brand { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+.brand:hover { color: var(--accent); }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 1.6rem; }
+.nav a { color: var(--ink); text-decoration: none; font-size: 0.95rem; padding: .3rem 0; border-bottom: 2px solid transparent; }
+.nav a:hover { border-bottom-color: var(--rule); }
+.nav a[aria-current="page"] { border-bottom-color: var(--accent); font-weight: 600; }
+.nav-toggle { display: none; background: none; border: 1px solid var(--rule); border-radius: 4px; padding: .35rem .7rem; font: inherit; font-size: .9rem; color: var(--ink); cursor: pointer; }
+
+/* ===== Page content ===== */
+main { padding: 3rem 0 4rem; }
+h1, h2, h3 { font-family: var(--serif); line-height: 1.2; color: var(--ink); }
+h1 { font-size: 2.6rem; font-weight: 600; letter-spacing: -0.025em; margin: 0 0 .4rem; }
+h2 { font-size: 1.45rem; font-weight: 600; margin: 3rem 0 1rem; padding-bottom: .4rem; border-bottom: 1px solid var(--rule); }
+h3 { font-size: 1.1rem; font-weight: 600; margin: 0 0 .25rem; }
+p { margin: 0 0 1rem; max-width: 68ch; }
+.lede { font-size: 1.15rem; color: var(--muted); margin-bottom: 1.4rem; }
+.page-title { font-size: 2.1rem; margin-bottom: 1.5rem; }
+.page-title + h2 { margin-top: 1.5rem; }
+
+/* ===== Home hero ===== */
+.hero { display: grid; grid-template-columns: 1fr 250px; gap: 3rem; align-items: start; }
+.portrait { position: relative; width: 250px; aspect-ratio: 4 / 5; background: var(--tint); border-radius: 4px; overflow: hidden; display: grid; place-items: center; }
+.portrait::before { content: "SMS"; font-family: var(--serif); font-size: 3rem; color: var(--accent); opacity: .35; }
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.6rem; }
+.btn { display: inline-block; padding: .55rem 1.1rem; border: 1.5px solid var(--accent); border-radius: 4px; text-decoration: none; font-weight: 600; font-size: .95rem; }
+.btn.primary { background: var(--accent); color: #fff; }
+.btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+.btn.secondary { color: var(--accent); background: transparent; }
+.btn.secondary:hover { background: var(--tint); }
+
+/* ===== Dated lists (year on the left) ===== */
+.dated { list-style: none; margin: 0; padding: 0; }
+.dated > li { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--rule); }
+.dated > li:last-child { border-bottom: none; }
+.dated .when { color: var(--muted); font-size: .92rem; font-variant-numeric: tabular-nums; }
+.dated .what p { margin: 0; }
+
+/* ===== Entries (papers, positions) ===== */
+.entry { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); }
+.entry:last-child { border-bottom: none; }
+.entry .meta { color: var(--muted); font-size: .95rem; margin: 0 0 .4rem; }
+.entry .status { display: inline-block; font-size: .85rem; color: var(--accent-dark); background: var(--tint); padding: .1rem .55rem; border-radius: 3px; margin-right: .4rem; }
+.entry details { margin-top: .4rem; }
+.entry summary { cursor: pointer; color: var(--accent); font-size: .95rem; }
+.entry details p { margin-top: .6rem; font-size: .97rem; }
+.pub { margin: 0; }
+.note { color: var(--muted); font-size: .92rem; }
+
+/* ===== Two-column info blocks ===== */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+.plain-list { margin: 0; padding-left: 1.1rem; }
+.plain-list li { margin-bottom: .35rem; }
+
+/* ===== Footer ===== */
+.site-footer { border-top: 1px solid var(--rule); padding: 1.6rem 0 2.2rem; color: var(--muted); font-size: .9rem; }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; }
+
+/* ===== Mobile ===== */
+@media (max-width: 760px) {
+  html { font-size: 17px; }
+  h1 { font-size: 2.1rem; }
+  .hero { grid-template-columns: 1fr; gap: 1.8rem; }
+  .portrait { width: 180px; order: -1; }
+  .cols { grid-template-columns: 1fr; gap: 0; }
+  .dated > li { grid-template-columns: 1fr; gap: .1rem; }
+  .nav-toggle { display: inline-block; }
+  .nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--paper); border-bottom: 1px solid var(--rule); padding: .5rem 1.5rem 1rem; z-index: 5; }
+  .nav.open { display: block; }
+  .nav ul { flex-direction: column; gap: .2rem; }
+  .nav a { display: block; padding: .5rem 0; }
+}
+@media print { .site-header, .site-footer, .actions { display: none; } body { background: #fff; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
